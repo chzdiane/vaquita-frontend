@@ -2,16 +2,18 @@ import { Route, Routes } from "react-router-dom";
 import { FriendsPage } from "./pages/FriendsPage";
 import { ExpensesPage } from "./pages/ExpensesPage";
 import { GroupsPage } from "./pages/GroupsPage";
-import { Header } from "./components/Header";
 import { GroupDetailPage } from "./pages/GroupDetailPage";
 import { InitialPage } from "./pages/HomePage";
 import { Footer } from "./components/Footer";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const App = () => {
   return (
     <div className="app">
-      <Header />
       <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/" element={<InitialPage />} />
         <Route path="/friends" element={<FriendsPage />} />
         <Route path="/expenses" element={<ExpensesPage />} />

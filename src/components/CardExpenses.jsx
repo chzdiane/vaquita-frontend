@@ -6,16 +6,17 @@ const CardExpenses = ({expensesData}) => {
         user,
         expense,
         concept,
-        participated
+        participated,
+        color,
     } = expensesData;
   return (
-    <div className="shadow-xl flex">
-      <div className="flex m-4 rounded-md bg-indigo-200 size-20">
+    <div className="shadow-xl flex lg:w-4/12">
+      <div className="flex m-4 rounded-md size-20" style={{backgroundColor: color}} >
         <img src={Logo} alt="Logo" />
       </div>
       <div className="flex flex-col m-2">
         <p>
-          <span className="text-amber-400">{user}</span>
+          <span className="text-amber-400">{user} </span>
           pagó ${expense} por {concept}
         </p>
         <p>{participated}</p>
