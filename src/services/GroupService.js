@@ -1,19 +1,23 @@
 import axios from "axios";
 
+//const API_URL = import.meta.env.VITE_API_URL;
+
+const LOCAL = "http://localhost:3001/groups/"
+
 const getGroups = () => {
-  return axios.get("http://localhost:3001/groups", {headers: {Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNzE2NTY2MDI2fQ.PUM6zBCKbPrDqmjvQRtNBSQyUdhT8pWP7g-detSlz18`}});
+  return axios.get(`${LOCAL}`, {headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}});
 };
 
 const getGroupsById = (id) => {
-  return axios.get(`http://localhost:3001/groups/${id}`, {headers: {Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNzE2NTY2MDI2fQ.PUM6zBCKbPrDqmjvQRtNBSQyUdhT8pWP7g-detSlz18`}});
+  return axios.get(`${LOCAL}/${id}`, {headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}});
 };
 
 const createGroup = (group) => {
-  return axios.post("http://localhost:3001/groups", group, {headers: {Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNzE2NTY2MDI2fQ.PUM6zBCKbPrDqmjvQRtNBSQyUdhT8pWP7g-detSlz18`}});
+  return axios.post(`${LOCAL}`, group, {headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}});
 }
 
 const deleteGroup = (id) => {
-  return axios.delete(`http://localhost:3001/groups/${id}`, {headers: {Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNzE2NTY2MDI2fQ.PUM6zBCKbPrDqmjvQRtNBSQyUdhT8pWP7g-detSlz18`}});
+  return axios.delete(`${LOCAL}/${id}`, {headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}});
 };
 
 export default { getGroups, getGroupsById, createGroup, deleteGroup};
