@@ -4,4 +4,8 @@ const login = (user) => {
   return axios.post(`http://localhost:3001/auth/login`, user);
 };
 
-export default { login };
+const register = (user) => {
+  return axios.post(`http://localhost:3001/users`, user);
+};
+
+export default { login, register };

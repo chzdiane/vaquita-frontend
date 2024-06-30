@@ -30,17 +30,17 @@ const CardGroup = ({ groupData, editButton, deleteAction, dropOutButton }) => {
         <div className="flex gap-2">
           {editButton && (
             <button onClick={handleClickUpddate} className="bg-amber-950 text-white rounded-md px-1 hover:bg-amber-800">
-              Editar
+              Ver
             </button>
           )}
           {deleteAction && (
             <button onClick={deleteAction} className="bg-amber-950 text-white rounded-md px-1 hover:bg-amber-800">
-              Eliminar
+              Abandonar
             </button>
           )}
           {dropOutButton && (
             <button className="bg-amber-950 text-white rounded-md px-1 hover:bg-amber-800">
-              Salir del grupo
+              Eliminar grupo
             </button>
           )}
         </div>
