@@ -27,12 +27,12 @@ const Register = () => {
   };
 
   return (
-    <div className="mx-8 mt-12">
+    <div className="mx-8 mt-12 flex flex-col items-center">
       <div className="flex items-center flex-col">
         <img src={Logo} alt="Logo" className="h-60 w-60" />
         <h1 className="text-amber-950 font-bold text-lg">Registro</h1>
       </div>
-      <form onSubmit={handleSubmit} className="flex flex-col items-center">
+      <form onSubmit={handleSubmit} className="flex flex-col items-center lg:w-4/12">
         <input
           value={fields.name}
           name="name"

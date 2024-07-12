@@ -2,8 +2,11 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.decoration.svg";
 import { useState } from "react";
 import UserServices from "../services/UserServices.js";
+import { useAuth } from "../components/AuthContext.jsx";
+
 
 const Login = () => {
+  const { login, logout } = useAuth();
   const navigate = useNavigate();
   const [fields, setFields] = useState({ email: "", password: "" });
   const [error, setError] = useState([]);
@@ -21,20 +24,22 @@ const Login = () => {
     try {
       const response = await UserServices.login(fields);
       localStorage.setItem("token", response.data.token);
+      login(response.data.token);
       navigate("/");
     } catch (error) {
+      logout();
       setError(error.response.data.error.split(","));
       return;
     }
   };
 
   return (
-    <div className="mx-8 mt-12">
+    <div className="mx-8 mt-12 flex flex-col items-center">
       <div className="flex items-center flex-col">
         <img src={Logo} alt="Logo" className="h-60 w-60" />
         <h1 className="text-amber-950 font-bold text-lg">Iniciar Sesión</h1>
       </div>
-      <form className="flex flex-col items-center" onSubmit={handleSubmit}>
+      <form className="flex flex-col items-center lg:w-4/12" onSubmit={handleSubmit}>
         <input
           value={fields.email}
           name="email"

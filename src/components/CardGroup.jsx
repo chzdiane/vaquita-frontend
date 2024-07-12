@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.svg";
 
 const CardGroup = ({ groupData, editButton, deleteAction, dropOutButton }) => {
+  const navigate = useNavigate();
+  
   const {
     id,
     name,
@@ -11,7 +13,7 @@ const CardGroup = ({ groupData, editButton, deleteAction, dropOutButton }) => {
   } = groupData;
 
   const handleClickUpddate = () => {
-    console.log("update");
+    navigate(`/detail/${id}`);
   };
 
   return (

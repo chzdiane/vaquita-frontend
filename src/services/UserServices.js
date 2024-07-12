@@ -8,4 +8,8 @@ const register = (user) => {
   return axios.post(`http://localhost:3001/users`, user);
 };
 
-export default { login, register };
+const getAll = () => {
+  return axios.get(`http://localhost:3001/users`, {headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}});
+};
+
+export default { login, register, getAll};
